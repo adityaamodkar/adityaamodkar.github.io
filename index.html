@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aditya Amodkar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Aditya Amodkar, IIT Hyderabad. Projects, work experience, product teardowns and leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one calm reading column (880px), sections separated by space, a few diagrams where they explain something. */
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --ink: #17191e;
+  --muted: #5b616c;
+  --line: #e4e5e8;
+  --accent: #2d55d6;
+  --accent-soft: #ebf0fd;
+  --sun: #f4c542;
+  --head: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #181b22; --ink: #eceef2; --muted: #9ba2ae; --line: #2a2e38;
+    --accent: #8ba6ff; --accent-soft: rgba(139, 166, 255, 0.13); --sun: #f2c94c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #181b22; --ink: #eceef2; --muted: #9ba2ae; --line: #2a2e38;
+  --accent: #8ba6ff; --accent-soft: rgba(139, 166, 255, 0.13); --sun: #f2c94c; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, h4 { font-family: var(--head); margin: 0; line-height: 1.2; text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 20px; }
+li + li { margin-top: 6px; }
+.wrap { max-width: 880px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.muted { color: var(--muted); }
+
+/* Top bar */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+.logo { font-family: var(--head); font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.top nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.top nav::-webkit-scrollbar { display: none; }
+.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+.top nav a:hover { color: var(--ink); background: var(--accent-soft); }
+@media (max-width: 640px) { .top nav a.opt { display: none; } }
+
+/* Intro */
+.intro { padding-block: 72px 24px; }
+.hello { font-size: 18px; color: var(--muted); font-weight: 500; }
+.intro h1 { font-size: clamp(42px, 7vw, 68px); font-weight: 800; letter-spacing: -0.025em; margin-top: 6px; line-height: 1.02; }
+.intro h1 .hl { background: linear-gradient(transparent 64%, color-mix(in srgb, var(--sun) 70%, transparent) 64%, color-mix(in srgb, var(--sun) 70%, transparent) 92%, transparent 92%); padding: 0 2px; }
+.intro .line { font-size: 21px; margin-top: 18px; max-width: 36em; }
+.edu { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.pill { font-size: 14.5px; padding: 5px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15.5px; padding: 10px 16px; border-radius: 8px; text-decoration: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.btn:hover { border-color: var(--accent); }
+.btn.main { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+/* Sections */
+section { padding-block: 64px 8px; }
+.sh { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+.sh h2 { font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -0.02em; }
+.sh .count { color: var(--muted); font-size: 15px; }
+
+.about p { font-size: 18.5px; max-width: 64ch; }
+.about p + p { margin-top: 16px; }
+.about .casual { color: var(--muted); }
+
+/* Experience */
+.job { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; }
+.job .logo-box { width: 64px; height: 64px; border-radius: 14px; background: #016fd0; color: #fff; display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 15px; letter-spacing: 0.02em; }
+.job h3 { font-size: 22px; font-weight: 700; }
+.job .meta { color: var(--muted); margin-top: 2px; }
+.job ul { margin-top: 14px; max-width: 68ch; }
+.nums { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 20px; }
+.nums div b { display: block; font-family: var(--head); font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.nums div span { font-size: 14.5px; color: var(--muted); }
+
+/* Featured projects */
+.feat { display: grid; gap: 18px; }
+.fcard { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 28px; }
+.fcard .type { font-size: 13.5px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+.fcard h3 { font-size: 23px; font-weight: 700; margin-top: 6px; }
+.fcard p { margin-top: 10px; }
+.fcard .tools { margin-top: 14px; font-size: 14.5px; color: var(--muted); }
+.fig { align-self: center; min-width: 0; }
+.fig .big { font-family: var(--head); font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.fig .cap { font-size: 14.5px; color: var(--muted); margin-top: 6px; }
+.fig svg { width: 100%; height: auto; }
+
+/* Project grid */
+.more { margin-top: 40px; }
+.more h3 { font-size: 19px; font-weight: 700; margin-bottom: 14px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { font: inherit; font-size: 15px; font-weight: 500; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card h4 { font-size: 18px; font-weight: 700; }
+.card p { font-size: 15.5px; color: var(--muted); }
+.card .foot { margin-top: auto; padding-top: 8px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+.card .foot a { font-weight: 600; white-space: nowrap; }
+
+/* Teardowns */
+.td-intro { max-width: 62ch; color: var(--muted); margin: -12px 0 28px; font-size: 18px; }
+.tds { display: grid; gap: 16px; }
+details.td { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+details.td summary { list-style: none; cursor: pointer; padding: 22px 24px; display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 18px; align-items: center; }
+details.td summary::-webkit-details-marker { display: none; }
+.badge { width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 17px; color: #fff; }
+.td h3 { font-size: 21px; font-weight: 700; }
+.td .one { color: var(--muted); margin-top: 3px; font-size: 16px; }
+.td .arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: transform 0.2s; color: var(--muted); }
+.td[open] .arrow { transform: rotate(180deg); }
+.td .body { padding: 4px 24px 28px; display: grid; gap: 26px; border-top: 1px solid var(--line); padding-top: 26px; }
+.td h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.td .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.diagram { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 18px; overflow-x: auto; }
+.diagram svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.diagram .note { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+.idea { background: var(--accent-soft); border-radius: 12px; padding: 20px 22px; }
+.idea .tag { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+.idea h4 { font-size: 20px; margin: 6px 0 8px; }
+.measure { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.measure div { border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.measure b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
+.measure p { font-size: 15.5px; }
+
+/* SVG theming */
+.s-line { stroke: var(--line); }
+.s-ink { fill: var(--ink); }
+.s-muted { fill: var(--muted); }
+.s-acc { fill: var(--accent); }
+.s-acc-stroke { stroke: var(--accent); }
+.s-soft { fill: var(--accent-soft); }
+.s-surface { fill: var(--surface); }
+.s-sun { fill: var(--sun); }
+svg text { font-family: var(--body); }
+
+/* Leadership */
+.prep { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.prep img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--line); }
+.prep .txt { padding: 24px 26px; }
+.prep h3 { font-size: 22px; font-weight: 700; }
+.prep p { margin-top: 8px; max-width: 68ch; }
+.roles { margin-top: 28px; display: grid; }
+.role { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; }
+.role:last-child { border-bottom: 0; }
+.role h3 { font-size: 19px; font-weight: 700; }
+.role .org { color: var(--muted); }
+.role .when { color: var(--muted); font-size: 15px; white-space: nowrap; grid-column: 2; grid-row: 1; }
+.role ul { grid-column: 1 / -1; margin-top: 10px; max-width: 70ch; }
+
+/* Skills */
+.skills { display: grid; gap: 14px; }
+.skill { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.skill:last-child { border-bottom: 0; }
+.skill b { font-family: var(--head); font-weight: 700; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-size: 14.5px; padding: 3px 10px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); }
+
+/* Contact */
+.contact-list { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.crow { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 22px; border-bottom: 1px solid var(--line); }
+.crow:last-child { border-bottom: 0; }
+.crow .k { color: var(--muted); font-size: 15px; }
+.crow .v { min-width: 0; overflow-wrap: anywhere; font-weight: 500; }
+.copy { font: inherit; font-size: 14px; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
+
+@media (max-width: 720px) {
+  .intro { padding-block: 48px 16px; }
+  .fcard { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 20px; }
+  .grid, .td .cols, .measure { grid-template-columns: minmax(0, 1fr); }
+  details.td summary { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 18px; gap: 14px; }
+  .badge { width: 44px; height: 44px; font-size: 15px; }
+  .td .body { padding: 22px 18px 24px; }
+  .job { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .role { grid-template-columns: minmax(0, 1fr); }
+  .role .when { grid-column: 1; grid-row: auto; }
+  .skill { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .crow { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 14px 18px; }
+  .crow .k { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home">Aditya Amodkar</a>
+    <nav aria-label="Sections">
+      <a class="opt" href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#teardowns">Teardowns</a>
+      <a class="opt" href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<div class="wrap intro">
+  <p class="hello">Hi, I'm</p>
+  <h1><span class="hl">Aditya Amodkar</span></h1>
+  <p class="line">I'm a student at IIT Hyderabad. Most of my work is in product and analytics: talking to users, digging through data, and figuring out what's worth building.</p>
+  <div class="edu">
+    <span class="pill">B.Tech Civil Engineering, IIT Hyderabad '27</span>
+    <span class="pill">Double Major in Entrepreneurship</span>
+    <span class="pill">Minor in Economics</span>
+    <span class="pill">CGPA 9.23</span>
+  </div>
+  <div class="links">
+    <a class="btn main" href="https://www.linkedin.com/in/aditya-amodkar/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.67 0-1.92 1.3-1.92 2.64V21h-4V9.75z"/></svg>LinkedIn</a>
+    <a class="btn" href="https://github.com/adityaamodkar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+    <a class="btn" href="#contact">Email</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="sh"><h2>About me</h2></div>
+    <p>I'm a final-year B.Tech Civil Engineering student at IIT Hyderabad, originally from Kalyan, Maharashtra. Alongside my degree, I'm doing a double major in Entrepreneurship and a minor in Economics.</p>
+    <p>A big part of my time in college went into the Finance &amp; Consulting Club, where I was Head of Consulting. We grew ProdX, our product case competition, to over 4,000 participants, and put together the club's first PrepBook for product and consulting interviews. This summer I interned at American Express as a Data Science &amp; Analytics intern. Right now I'm the Head Placement Coordinator for the Civil department.</p>
+    <p>What I enjoy most is understanding why people use a product the way they do, and then using data to decide what to fix or build next.</p>
+    <p class="casual">Catch me any time to talk about a product feature you love (or hate), the latest Instagram trend, or just for a casual game of badminton.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sh"><h2>Work experience</h2></div>
+    <article class="job">
+      <div class="logo-box" aria-hidden="true">AMEX</div>
+      <div>
+        <h3>Data Science &amp; Analytics Intern, American Express</h3>
+        <p class="meta">May 2026 – July 2026</p>
+        <ul>
+          <li>Automated the full Country Risk Assessment &amp; Reporting workflow, from pulling data and processing it to calculating country risk scores and generating reports.</li>
+          <li>Expanded coverage from 26 countries to all 195 UN-recognised countries, scored on 17 economic, financial and country-level parameters, so new markets can be assessed the same way.</li>
+          <li>Built the pipeline with Power Query, API integrations, Excel, SQL and Custom GPTs.</li>
+          <li>Worked with risk and compliance teams to agree on reporting requirements before standardising the process.</li>
+        </ul>
+        <div class="nums">
+          <div><b>120 → 40 hrs</b><span>manual effort per cycle</span></div>
+          <div><b>26 → 195</b><span>countries covered</span></div>
+          <div><b>17</b><span>risk parameters</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sh"><h2>Projects</h2><span class="count">14 projects</span></div>
+
+    <div class="feat">
+      <article class="fcard">
+        <div>
+          <span class="type">Product analytics</span>
+          <h3>Capital Bikeshare: who to convert, and where bikes run out</h3>
+          <p>Went through 1.3M+ rides to answer two questions. Which casual riders should be on a membership? And why do some stations run dry every morning? Found 11.4k casual riders already spending more than the $10/month membership, worth about $38.4k a year if converted. SQL flow analysis showed peak imbalances of over 1,000 bikes, driven by commuters. Wrote a PRD and built a KPI dashboard, including a crowdsourced rebalancing idea that projects 87% lower costs.</p>
+          <p class="tools">PostgreSQL · Power BI · DAX</p>
+        </div>
+        <div class="fig">
+          <div class="big">11.4k</div>
+          <p class="cap">casual riders above the membership break-even</p>
+        </div>
+      </article>
+
+      <article class="fcard">
+        <div>
+          <span class="type">User research · Design</span>
+          <h3>LaundrySync: fixing the hostel laundry queue</h3>
+          <p>Hostel laundry is a daily headache: you walk down to find every machine busy, or one sitting idle with someone else's clothes in it. I spent two days watching how people used the laundry room and ran 20+ interviews. The main problems were idle machines, timers nobody trusted, and awkwardness about moving other people's clothes. I turned that into personas and requirements, then designed a clickable Figma prototype with live machine availability, notifications, and a 15-minute grace period before your clothes can be moved.</p>
+          <p class="tools">User interviews · Root cause analysis · Figma</p>
+        </div>
+        <div class="fig">
+          <div class="big">20+</div>
+          <p class="cap">user interviews over 2 days of observation</p>
+        </div>
+      </article>
+
+      <article class="fcard">
+        <div>
+          <span class="type">Lean startup</span>
+          <h3>PackLight: testing a smart suitcase before building one</h3>
+          <p>Hardware is expensive to get wrong, so we tested demand first. We ranked four hypotheses (do people want it, will they pay, can we build it, will they use it again) by impact and uncertainty. Then we ran a Wizard-of-Oz MVP with 25+ target users. Purchase intent came in at 75%, above the 60% bar we set, so unit economics is the next thing to test.</p>
+          <p class="tools">Lean experiments · MVP design · Streamlit</p>
+        </div>
+        <div class="fig">
+          <svg viewBox="0 0 220 130" role="img" aria-label="Purchase intent 75 percent against a 60 percent target">
+            <text x="0" y="14" class="s-muted" font-size="12">Purchase intent</text>
+            <rect x="0" y="26" width="220" height="26" rx="6" class="s-soft"/>
+            <rect x="0" y="26" width="165" height="26" rx="6" class="s-acc"/>
+            <text x="8" y="44" font-size="13" font-weight="700" class="s-surface">75%</text>
+            <line x1="132" y1="20" x2="132" y2="58" stroke-width="2" stroke-dasharray="3 3" class="s-line" style="stroke: var(--ink)"/>
+            <text x="132" y="74" font-size="12" text-anchor="middle" class="s-muted">60% target</text>
+            <text x="0" y="104" font-size="12" class="s-muted">Wizard-of-Oz test</text>
+            <text x="0" y="122" font-size="12" class="s-ink" font-weight="600">25+ target users</text>
+          </svg>
+        </div>
+      </article>
+    </div>
+
+    <div class="more">
+      <h3>More projects</h3>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="chip" type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" id="f-product" data-f="product" aria-pressed="false">Product &amp; analytics</button>
+        <button class="chip" type="button" id="f-ml" data-f="ml" aria-pressed="false">Data science &amp; ML</button>
+        <button class="chip" type="button" id="f-dev" data-f="dev" aria-pressed="false">Software</button>
+      </div>
+      <div class="grid" id="grid">
+        <article class="card" data-k="product">
+          <h4>Marketplace discovery funnel</h4>
+          <p>Looked at 15.5M+ search and product interactions to see where users drop off between search and purchase. Across 69 categories, found a 1.06 pp gap in post-cart conversion compared with the peer benchmark, and built a Power BI dashboard to track it.</p>
+          <div class="foot"><span>SQL · DuckDB · Power BI</span><a href="https://github.com/adityaamodkar/jdsearch-marketplace-discovery-funnel" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+        <article class="card" data-k="product">
+          <h4>What ixigo users complain about</h4>
+          <p>Ran NLP on 9.6K+ Google Play reviews, 80.7% of them one-star. Grouped the complaints into 5 pain points (refunds, pricing, support, payments and app stability) and suggested a fix for each.</p>
+          <div class="foot"><span>Python · Orange · NLP</span></div>
+        </article>
+        <article class="card" data-k="product">
+          <h4>Picapool: campus go-to-market</h4>
+          <p>During my internship at Picapool, a location-based app for sharing resources on campus, I studied competitors and sharing habits across 10+ campuses, helped refine positioning, and proposed growth ideas to bring down acquisition cost.</p>
+          <div class="foot"><span>Market research · GTM</span></div>
+        </article>
+        <article class="card" data-k="product">
+          <h4>Customer segmentation</h4>
+          <p>Split 2,236 customers into 4 personas with K-Means. "Premium Loyalists" were 23% of customers but about 52% of spend. Also built a campaign response model (0.913 ROC-AUC) to target the right people.</p>
+          <div class="foot"><span>Python · Scikit-learn</span></div>
+        </article>
+        <article class="card" data-k="ml">
+          <h4>Credit card fraud detection</h4>
+          <p>Compared Logistic Regression, Decision Tree, Random Forest and KNN on 284k+ transactions. Random Forest did best on the fraud class, with 0.99 precision and 0.87 recall.</p>
+          <div class="foot"><span>Python · Scikit-learn</span><a href="https://github.com/adityaamodkar/credit-card-fraud-detection" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+        <article class="card" data-k="ml">
+          <h4>Hangman solver (ML hackathon)</h4>
+          <p>Tried 6+ approaches, including GRUs, Transformers and retrieval, and ended up with a Transformer ensemble that wins 52.2% of games on 12K unseen words.</p>
+          <div class="foot"><span>PyTorch · NLP</span><a href="https://github.com/adityaamodkar/hangman-solver" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+        <article class="card" data-k="ml">
+          <h4>Particle packing optimisation</h4>
+          <p>Used Differential Evolution and CMA-ES to find better particle-size mixes for high-strength concrete. R² of 0.978 (UHPC) and 0.985 (HSC). DE ran in 7.03s against 9.18s for CMA-ES.</p>
+          <div class="foot"><span>Python · Optimisation</span></div>
+        </article>
+        <article class="card" data-k="ml">
+          <h4>FinAgent</h4>
+          <p>Five AI agents that analyse the market, propose a strategy, plan execution and argue against it on risk. Every LLM output is checked against real indicators like RSI, MACD and volatility.</p>
+          <div class="foot"><span>Python · Pydantic · SQLite</span><a href="https://github.com/adityaamodkar/financial-advisor-agent" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+        <article class="card" data-k="dev">
+          <h4>PriceMemory</h4>
+          <p>Tracks product prices and offer conditions, then tells you whether to Buy, Wait or keep watching, with a confidence level and anything it couldn't check.</p>
+          <div class="foot"><span>Python · Streamlit · Gemini</span></div>
+        </article>
+        <article class="card" data-k="dev">
+          <h4>SyncSpace</h4>
+          <p>Watch videos with friends in sync. Handles playback conflicts on the server with Redis, corrects drift, and recovers when someone reconnects. Covered by 83 tests.</p>
+          <div class="foot"><span>Next.js · Redis · Socket.IO</span></div>
+        </article>
+        <article class="card" data-k="dev">
+          <h4>DevQuest</h4>
+          <p>A multiplayer coding arena where people edit the same code live and run it in JavaScript, Python or C++.</p>
+          <div class="foot"><span>React · Node.js · Socket.io</span><a href="https://github.com/adityaamodkar/coding-arena-multiplayer" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teardowns">
+  <div class="wrap">
+    <div class="sh"><h2>Product teardowns</h2></div>
+    <p class="td-intro">Three Indian apps I find interesting, each with an unusual model. For each one: how it works, what's good, what isn't, and one thing I'd build.</p>
+
+    <div class="tds">
+      <!-- Rapido -->
+      <details class="td" open>
+        <summary>
+          <span class="badge" style="background:#e3a400" aria-hidden="true">Ra</span>
+          <div>
+            <h3>Rapido</h3>
+            <p class="one">Bike taxis, autos and cabs, where drivers pay a flat subscription instead of a cut of every ride.</p>
+          </div>
+          <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </summary>
+        <div class="body">
+          <div>
+            <h4>How it works</h4>
+            <p>Most ride apps take a percentage of each fare. Rapido moved its captains (drivers) to a daily or weekly subscription, so they keep the full fare. That changes the captain's maths: every extra ride is pure income, so it makes sense to stay online longer and accept more.</p>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 560 230" role="img" aria-label="Rapido flywheel: captains keep full fare, more captains online, shorter waits, more riders, more rides per captain">
+              <defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="s-acc"/></marker></defs>
+              <g fill="none" stroke-width="2" class="s-acc-stroke" marker-end="url(#ar1)">
+                <path d="M200 46 C 250 30, 310 30, 360 46"/>
+                <path d="M450 80 C 480 110, 480 130, 450 158"/>
+                <path d="M360 190 C 310 206, 250 206, 200 190"/>
+                <path d="M110 158 C 80 130, 80 110, 110 80"/>
+              </g>
+              <g font-size="14" text-anchor="middle">
+                <rect x="40" y="30" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
+                <text x="125" y="52" class="s-ink" font-weight="600">Captains keep</text><text x="125" y="70" class="s-ink" font-weight="600">the full fare</text>
+                <rect x="350" y="30" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
+                <text x="435" y="52" class="s-ink" font-weight="600">More captains</text><text x="435" y="70" class="s-ink" font-weight="600">stay online</text>
+                <rect x="350" y="156" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
+                <text x="435" y="178" class="s-ink" font-weight="600">Shorter waits,</text><text x="435" y="196" class="s-ink" font-weight="600">fewer cancels</text>
+                <rect x="40" y="156" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
+                <text x="125" y="178" class="s-ink" font-weight="600">More riders,</text><text x="125" y="196" class="s-ink" font-weight="600">more rides each</text>
+                <circle cx="280" cy="119" r="38" class="s-soft"/>
+                <text x="280" y="115" class="s-acc" font-weight="700" font-size="13">The</text><text x="280" y="131" class="s-acc" font-weight="700" font-size="13">flywheel</text>
+              </g>
+            </svg>
+          </div>
+          <div class="cols">
+            <div>
+              <h4>What's working</h4>
+              <ul>
+                <li>A bike is the cheapest way to get one person across a city in traffic. Cabs can't match that price.</li>
+                <li>The subscription keeps captains loyal, since they've already paid for the day.</li>
+                <li>Bike, auto and cab in one app, so you can switch when it rains or you have bags.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>What's not</h4>
+              <ul>
+                <li>Captains can still see where you're going and cancel if it's out of their way.</li>
+                <li>Riding pillion with a stranger feels risky for a lot of people, especially women and at night.</li>
+                <li>If you take the same ride every morning, you still book it from scratch each day.</li>
+                <li>Bike taxi rules vary by state, so the cheapest option can disappear from a city.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="idea">
+            <span class="tag">What I'd build</span>
+            <h4>Commute Pass</h4>
+            <p>Set your weekday route and time once. Rapido matches you with 2–3 well-rated captains who already ride that route, and you pay weekly. You see the same few faces, which helps with safety. Captains get guaranteed rides at the start of their day, and since they agreed to the route up front, there's no reason to cancel.</p>
+          </div>
+          <div class="measure">
+            <div><b>Main metric</b><p>Rides per active rider per week</p></div>
+            <div><b>Is it working?</b><p>Pass renewals after 4 weeks, on-time pickups</p></div>
+            <div><b>Watch out for</b><p>Captain earnings per hour, wait times for everyone else</p></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Pocket FM -->
+      <details class="td">
+        <summary>
+          <span class="badge" style="background:#e8453c" aria-hidden="true">PF</span>
+          <div>
+            <h3>Pocket FM</h3>
+            <p class="one">Audio series with hundreds of short episodes. The first few are free, then you unlock each one with coins.</p>
+          </div>
+          <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </summary>
+        <div class="body">
+          <div>
+            <h4>How it works</h4>
+            <p>Think of a daily soap, but in your earphones. Episodes are short and almost every one ends on a cliffhanger. You get hooked on the free episodes, and the paywall shows up right when you most want to know what happens next. Paying a few coins per episode feels small, which suits people who don't like monthly subscriptions.</p>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 560 240" role="img" aria-label="Illustrative chart: the cost of a long series keeps rising with every episode, while the listener only ever sees the price of the next one">
+              <g class="s-line" stroke-width="1">
+                <line x1="50" y1="190" x2="540" y2="190"/>
+                <line x1="50" y1="30" x2="50" y2="190"/>
+              </g>
+              <g font-size="12" class="s-muted" text-anchor="middle">
+                <text x="50" y="208">0</text><text x="148" y="208">100</text><text x="246" y="208">200</text><text x="344" y="208">300</text><text x="442" y="208">400</text><text x="540" y="208">500</text>
+                <text x="295" y="230">Episodes listened</text>
+              </g>
+              <text x="0" y="0" font-size="12" class="s-muted" transform="translate(30 150) rotate(-90)">Total spent</text>
+              <path d="M50 190 L60 190 L540 34" fill="none" stroke-width="3" class="s-acc-stroke"/>
+              <path d="M50 190 L60 190 L540 34 L540 190 Z" class="s-soft"/>
+              <circle cx="109" cy="171" r="5" class="s-acc"/>
+              <rect x="120" y="128" width="186" height="38" rx="8" class="s-surface" style="stroke:var(--line)"/>
+              <text x="132" y="145" font-size="12.5" class="s-ink" font-weight="600">Episode 60</text>
+              <text x="132" y="159" font-size="12" class="s-muted">"Just a few coins each"</text>
+              <circle cx="540" cy="34" r="5" class="s-acc"/>
+              <rect x="300" y="20" width="220" height="38" rx="8" class="s-surface" style="stroke:var(--line)"/>
+              <text x="312" y="37" font-size="12.5" class="s-ink" font-weight="600">Episode 500</text>
+              <text x="312" y="51" font-size="12" class="s-muted">"Wait, I've spent how much?"</text>
+            </svg>
+            <p class="note">Illustration, not real prices. The point is the shape: the total keeps growing, but the app only ever shows you the price of the next episode.</p>
+          </div>
+          <div class="cols">
+            <div>
+              <h4>What's working</h4>
+              <ul>
+                <li>Small payments are easy to say yes to, especially for first-time payers.</li>
+                <li>Cliffhangers put the paywall exactly where people most want to keep going.</li>
+                <li>Audio fits time video can't touch: commutes, cooking, before sleep.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>What's not</h4>
+              <ul>
+                <li>You never know what a full series will cost before you start.</li>
+                <li>People who realise late feel tricked. They don't just stop, they leave angry reviews.</li>
+                <li>Long series lose people halfway, and nothing tells you how far you've got or how much is left.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="idea">
+            <span class="tag">What I'd build</span>
+            <h4>Show the finish line</h4>
+            <p>Every series shows how long the season is, how far you've got, and one discounted price to unlock the rest. Coins still work if you'd rather pay as you go. You'd lose a bit of impulse revenue, but people who feel in control stay longer, finish series, and start new ones.</p>
+          </div>
+          <div class="measure">
+            <div><b>Main metric</b><p>Listening minutes per paying user per week</p></div>
+            <div><b>Is it working?</b><p>90-day retention of payers, share who start a second series</p></div>
+            <div><b>Watch out for</b><p>Revenue per payer, refund requests, 1-star reviews about price</p></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- RailOne -->
+      <details class="td">
+        <summary>
+          <span class="badge" style="background:#1f6feb" aria-hidden="true">R1</span>
+          <div>
+            <h3>RailOne</h3>
+            <p class="one">Indian Railways' all-in-one app: tickets, PNR, live train status, food and complaints under one login.</p>
+          </div>
+          <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </summary>
+        <div class="body">
+          <div>
+            <h4>How it works</h4>
+            <p>Train travellers used to need a different app for almost everything: booking, unreserved tickets, PNR status, tracking and complaints. RailOne puts all of it behind one login. It's a big step, but the app is still arranged around the railway's departments, with one tile each, rather than around your trip.</p>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 600 220" role="img" aria-label="A train journey from booking to arrival, with the anxious moments marked and what Journey Mode would show at each step">
+              <line x1="40" y1="96" x2="560" y2="96" stroke-width="3" class="s-line"/>
+              <g font-size="13" text-anchor="middle">
+                <circle cx="60" cy="96" r="9" class="s-acc"/><text x="60" y="70" class="s-ink" font-weight="600">Book</text>
+                <circle cx="160" cy="96" r="9" class="s-sun"/><text x="160" y="70" class="s-ink" font-weight="600">Waitlisted</text>
+                <circle cx="270" cy="96" r="9" class="s-sun"/><text x="270" y="70" class="s-ink" font-weight="600">Chart prepared</text>
+                <circle cx="380" cy="96" r="9" class="s-sun"/><text x="380" y="70" class="s-ink" font-weight="600">At the station</text>
+                <circle cx="470" cy="96" r="9" class="s-acc"/><text x="470" y="70" class="s-ink" font-weight="600">On board</text>
+                <circle cx="550" cy="96" r="9" class="s-acc"/><text x="550" y="70" class="s-ink" font-weight="600">Arrive</text>
+              </g>
+              <text x="40" y="30" font-size="12.5" class="s-muted">Yellow = moments where people stress and keep re-checking</text>
+              <g font-size="12" text-anchor="middle" class="s-muted">
+                <text x="160" y="130">Chance it confirms</text><text x="160" y="146">+ a backup train</text>
+                <text x="270" y="130">Alert when</text><text x="270" y="146">the chart is out</text>
+                <text x="380" y="130">Platform and</text><text x="380" y="146">coach position</text>
+                <text x="470" y="130">Food at the</text><text x="470" y="146">next stop</text>
+              </g>
+              <rect x="40" y="170" width="520" height="34" rx="8" class="s-soft"/>
+              <text x="300" y="192" font-size="13" text-anchor="middle" class="s-acc" font-weight="700">Journey Mode: one card that updates through the trip</text>
+            </svg>
+          </div>
+          <div class="cols">
+            <div>
+              <h4>What's working</h4>
+              <ul>
+                <li>One login instead of four or five apps is a real everyday win.</li>
+                <li>Buying unreserved tickets on your phone means no queue at the station.</li>
+                <li>Official running and platform data is more trustworthy than third-party guesses.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>What's not</h4>
+              <ul>
+                <li>It still feels like separate apps under one icon. You jump between tiles for one trip.</li>
+                <li>The most stressful part, sitting on a waitlist before the chart comes out, gets the least help.</li>
+                <li>Tatkal booking rushes are a huge load, and one bad morning shapes how people see the whole app.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="idea">
+            <span class="tag">What I'd build</span>
+            <h4>Journey Mode</h4>
+            <p>Once you book, the home screen turns into one card for your trip. It shows how likely your waitlist is to confirm (with a backup option), pings you when the chart is out, shows your platform and where your coach will stop, offers food at the right station, and lets you raise a complaint in one tap with your PNR already filled in. Everything needed already exists in the app. It just needs to follow the trip.</p>
+          </div>
+          <div class="measure">
+            <div><b>Main metric</b><p>Share of trips where Journey Mode is opened on travel day</p></div>
+            <div><b>Is it working?</b><p>Fewer manual PNR checks per trip, more food orders through the app</p></div>
+            <div><b>Watch out for</b><p>Tatkal booking success rate, crash rate, Play Store rating</p></div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <div class="sh"><h2>Leadership</h2></div>
+    <article class="prep">
+      <img src="assets/prepbook-cover.jpg" alt="Cover of the FCC PrepBook 2026, inaugural edition, by the Finance & Consulting Club, IIT Hyderabad" width="1280" height="720" loading="lazy">
+      <div class="txt">
+        <h3>FCC PrepBook 2026</h3>
+        <p>As Head of Consulting, I co-led the first edition of the club's PrepBook with our Overall Coordinator. It's a guide for engineering students who are new to product and consulting interviews. It includes 30+ real interview cases from companies that recruit at IIT Hyderabad, covering product design, metrics, root cause analysis, go-to-market, guesstimates, profitability and market entry.</p>
+      </div>
+    </article>
+
+    <div class="roles">
+      <article class="role">
+        <h3>Head Placement Coordinator, Civil Department</h3>
+        <span class="when">Apr 2026 – Present</span>
+        <p class="org">Office of Career Services, IIT Hyderabad</p>
+        <ul>
+          <li>Lead placements for 120+ students and a team of 15 placement coordinators.</li>
+          <li>Reach out to 50+ companies across core engineering, tech, analytics and management.</li>
+          <li>Coordinating Japan Day 2026 and Career Fair 2026, with 75+ companies taking part.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <h3>Head of Consulting</h3>
+        <span class="when">May 2025 – Apr 2026</span>
+        <p class="org">Finance &amp; Consulting Club, IIT Hyderabad</p>
+        <ul>
+          <li>Led an 18-member team running the club's consulting domain.</li>
+          <li>Grew ProdX, IIT Hyderabad's flagship product case competition, from 650 to 4,000+ participants by reworking outreach.</li>
+          <li>Started the first Campus Case Challenge (120+ participants, problems from 2 campus brands) and Elevate, a workshop series for 150+ students from other Hyderabad colleges.</li>
+          <li>Designed Consult Summer School '26, a 6-week programme for 150+ members, and ran 8+ Case kNights sessions for 300+ students.</li>
+          <li>Ran 3 product and consulting events at Horizon '26, the management fest, which drew 5,000+ footfall.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <h3>Consulting Coordinator</h3>
+        <span class="when">May 2024 – Apr 2025</span>
+        <p class="org">Finance &amp; Consulting Club, IIT Hyderabad</p>
+        <ul>
+          <li>Selected from 120+ applicants to run consulting activities for a 700+ member community.</li>
+          <li>Ran the Associates Program for freshers (130+ applications) and mentored 8 members.</li>
+          <li>Designed an inter-hostel case competition across 20+ hostels, and ran ProdX end to end with 650+ registrations.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <h3>PR &amp; Marketing Coordinator</h3>
+        <span class="when">May 2024 – Apr 2025</span>
+        <p class="org">TEDxIITHyderabad</p>
+        <ul>
+          <li>Doubled the Instagram following with story-led content and platform-specific campaigns.</li>
+          <li>Made reels that crossed 16k+ views, and promoted X-Masterclass through school outreach.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sh"><h2>Toolkit</h2></div>
+    <div class="skills">
+      <div class="skill"><b>Product</b><div class="tags"><span>PRDs</span><span>User research</span><span>Design thinking</span><span>Product metrics</span><span>Funnel &amp; cohort analysis</span><span>Root cause analysis</span><span>Unit economics</span></div></div>
+      <div class="skill"><b>Data</b><div class="tags"><span>SQL</span><span>PostgreSQL</span><span>DuckDB</span><span>Python</span><span>Pandas</span><span>Power BI</span><span>DAX</span><span>Excel</span><span>Power Query</span></div></div>
+      <div class="skill"><b>ML &amp; AI</b><div class="tags"><span>Scikit-learn</span><span>PyTorch</span><span>NLP</span><span>LLMs</span><span>RAG</span><span>LangChain</span><span>LangGraph</span></div></div>
+      <div class="skill"><b>Design &amp; tools</b><div class="tags"><span>Figma</span><span>Jira</span><span>Git</span><span>Streamlit</span></div></div>
+      <div class="skill"><b>Development</b><div class="tags"><span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>Redis</span><span>MongoDB</span><span>C++</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sh"><h2>Contact</h2></div>
+    <div class="contact-list">
+      <div class="crow"><span class="k">Email</span><span class="v" id="email">amodkaraditya@gmail.com</span><button class="copy" type="button" id="copy-email">Copy</button></div>
+      <div class="crow"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/aditya-amodkar/" target="_blank" rel="noopener">linkedin.com/in/aditya-amodkar</a></span><span></span></div>
+      <div class="crow"><span class="k">GitHub</span><span class="v"><a href="https://github.com/adityaamodkar" target="_blank" rel="noopener">github.com/adityaamodkar</a></span><span></span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Aditya Amodkar</div></footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('#grid .card');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-f');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      cards.forEach(function (card) { card.hidden = !(f === 'all' || card.getAttribute('data-k') === f); });
+    });
+  });
+  var btn = document.getElementById('copy-email');
+  var el = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
+    try {
+      navigator.clipboard.writeText(el.textContent.trim()).then(function () {
+        btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
