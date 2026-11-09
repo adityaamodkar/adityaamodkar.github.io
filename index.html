@@ -145,6 +145,10 @@ details.td summary::-webkit-details-marker { display: none; }
 .measure b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
 .measure p { font-size: 15.5px; }
 
+.td .ind { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: var(--accent-soft); padding: 1px 8px; border-radius: 4px; margin-right: 6px; vertical-align: 1px; }
+.idea .trade { margin-top: 10px; font-size: 15.5px; color: var(--muted); }
+.idea .trade b { color: var(--ink); }
+.td .cols p { font-size: 16.5px; }
 /* SVG theming */
 .s-line { stroke: var(--line); }
 .s-ink { fill: var(--ink); }
@@ -399,214 +403,302 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
 
 <section id="teardowns">
   <div class="wrap">
-    <div class="sh"><h2>Product teardowns</h2></div>
-    <p class="td-intro">Three Indian apps I find interesting, each with an unusual model. For each one: how it works, what's good, what isn't, and one thing I'd build.</p>
+    <div class="sh"><h2>Product teardowns</h2><span class="count">4 products, 4 industries</span></div>
+    <p class="td-intro">Four products I use or follow closely, each from a different industry. For each one: who it's for, how it works, what's good, what isn't, one thing I'd build, and how I'd know if it worked.</p>
 
     <div class="tds">
-      <!-- Rapido -->
+      <!-- Swiggy Bolt -->
       <details class="td" open>
         <summary>
-          <span class="badge" style="background:#e3a400" aria-hidden="true">Ra</span>
+          <span class="badge" style="background:#f2701c" aria-hidden="true">SB</span>
           <div>
-            <h3>Rapido</h3>
-            <p class="one">Bike taxis, autos and cabs, where drivers pay a flat subscription instead of a cut of every ride.</p>
+            <h3>Swiggy Bolt</h3>
+            <p class="one"><span class="ind">Food delivery</span> Food in about 10 minutes, from restaurants close to you, on dishes that are quick to make.</p>
           </div>
           <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </summary>
         <div class="body">
-          <div>
-            <h4>How it works</h4>
-            <p>Most ride apps take a percentage of each fare. Rapido moved its captains (drivers) to a daily or weekly subscription, so they keep the full fare. That changes the captain's maths: every extra ride is pure income, so it makes sense to stay online longer and accept more.</p>
+          <div class="cols">
+            <div>
+              <h4>Who uses it</h4>
+              <ul>
+                <li>People ordering on impulse: a late-night snack, a quick coffee, lunch between meetings.</li>
+                <li>Users who already order on Swiggy and now compare it with quick commerce apps that deliver in 10 minutes.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>How it works</h4>
+              <p>Bolt doesn't build new kitchens. It reuses Swiggy's existing restaurants, but only shows ones within a short distance of you, and only for items that take a few minutes to prepare, like beverages, rolls or packaged desserts. Short distance plus short prep time is what makes 10 minutes possible.</p>
+            </div>
           </div>
           <div class="diagram">
-            <svg viewBox="0 0 560 230" role="img" aria-label="Rapido flywheel: captains keep full fare, more captains online, shorter waits, more riders, more rides per captain">
-              <defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="s-acc"/></marker></defs>
-              <g fill="none" stroke-width="2" class="s-acc-stroke" marker-end="url(#ar1)">
-                <path d="M200 46 C 250 30, 310 30, 360 46"/>
-                <path d="M450 80 C 480 110, 480 130, 450 158"/>
-                <path d="M360 190 C 310 206, 250 206, 200 190"/>
-                <path d="M110 158 C 80 130, 80 110, 110 80"/>
-              </g>
-              <g font-size="14" text-anchor="middle">
-                <rect x="40" y="30" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
-                <text x="125" y="52" class="s-ink" font-weight="600">Captains keep</text><text x="125" y="70" class="s-ink" font-weight="600">the full fare</text>
-                <rect x="350" y="30" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
-                <text x="435" y="52" class="s-ink" font-weight="600">More captains</text><text x="435" y="70" class="s-ink" font-weight="600">stay online</text>
-                <rect x="350" y="156" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
-                <text x="435" y="178" class="s-ink" font-weight="600">Shorter waits,</text><text x="435" y="196" class="s-ink" font-weight="600">fewer cancels</text>
-                <rect x="40" y="156" width="170" height="52" rx="10" class="s-surface" style="stroke:var(--line)"/>
-                <text x="125" y="178" class="s-ink" font-weight="600">More riders,</text><text x="125" y="196" class="s-ink" font-weight="600">more rides each</text>
-                <circle cx="280" cy="119" r="38" class="s-soft"/>
-                <text x="280" y="115" class="s-acc" font-weight="700" font-size="13">The</text><text x="280" y="131" class="s-acc" font-weight="700" font-size="13">flywheel</text>
-              </g>
+            <svg viewBox="0 0 620 230" role="img" aria-label="Bolt only works when the restaurant is close and the dish is fast. An illustrative 10 minute split: 4 minutes of prep, 1 minute of handover, 5 minutes of riding.">
+              <circle cx="120" cy="118" r="92" fill="none" stroke-width="1.5" stroke-dasharray="5 5" class="s-acc-stroke"/>
+              <circle cx="120" cy="118" r="8" class="s-acc"/>
+              <text x="120" y="146" font-size="12" text-anchor="middle" class="s-ink" font-weight="600">You</text>
+              <g class="s-sun"><circle cx="70" cy="80" r="6"/><circle cx="170" cy="70" r="6"/><circle cx="160" cy="170" r="6"/><circle cx="78" cy="160" r="6"/></g>
+              <g class="s-muted"><circle cx="248" cy="40" r="5"/><circle cx="236" cy="200" r="5"/><circle cx="12" cy="30" r="5"/></g>
+              <text x="120" y="20" font-size="12" text-anchor="middle" class="s-muted">Short delivery radius</text>
+              <text x="282" y="92" font-size="12" class="s-ink" font-weight="600">10-minute promise</text>
+              <rect x="282" y="104" width="128" height="34" rx="4" class="s-sun"/>
+              <rect x="410" y="104" width="32" height="34" class="s-soft"/>
+              <rect x="442" y="104" width="160" height="34" rx="4" class="s-acc"/>
+              <text x="346" y="125" font-size="12" text-anchor="middle" fill="#1a1a1a" font-weight="600">Prep 4 min</text>
+              <text x="522" y="125" font-size="12" text-anchor="middle" class="s-surface" font-weight="600">Ride 5 min</text>
+              <text x="426" y="156" font-size="11" text-anchor="middle" class="s-muted">Handover</text>
+              <text x="282" y="190" font-size="12" class="s-muted">Yellow dots: restaurants that qualify. Grey: too far.</text>
+              <text x="282" y="208" font-size="12" class="s-muted">Every minute the kitchen takes is a minute the rider loses.</text>
             </svg>
+            <p class="note">The time split is an illustration, not Swiggy's data.</p>
           </div>
           <div class="cols">
             <div>
               <h4>What's working</h4>
               <ul>
-                <li>A bike is the cheapest way to get one person across a city in traffic. Cabs can't match that price.</li>
-                <li>The subscription keeps captains loyal, since they've already paid for the day.</li>
-                <li>Bike, auto and cab in one app, so you can switch when it rains or you have bags.</li>
+                <li>No new kitchens to build, so Bolt can launch in a city fast, using restaurants Swiggy already works with.</li>
+                <li>It answers the "why wait 35 minutes?" habit that quick commerce has trained people into.</li>
+                <li>Small, simple items are also the ones people order often, so it can push order frequency up.</li>
               </ul>
             </div>
             <div>
               <h4>What's not</h4>
               <ul>
-                <li>Captains can still see where you're going and cancel if it's out of their way.</li>
-                <li>Riding pillion with a stranger feels risky for a lot of people, especially women and at night.</li>
-                <li>If you take the same ride every morning, you still book it from scratch each day.</li>
-                <li>Bike taxi rules vary by state, so the cheapest option can disappear from a city.</li>
+                <li>The 10-minute promise depends on the kitchen. If the restaurant is busy with dine-in or other orders, the promise breaks, and the user blames Swiggy.</li>
+                <li>The menu is narrow, so users often open Bolt, don't find what they want, and leave.</li>
+                <li>A hard 10-minute target puts pressure on delivery partners on the road.</li>
+                <li>It's unclear if Bolt brings new orders or just moves normal orders to a faster, more expensive delivery.</li>
               </ul>
             </div>
           </div>
           <div class="idea">
             <span class="tag">What I'd build</span>
-            <h4>Commute Pass</h4>
-            <p>Set your weekday route and time once. Rapido matches you with 2–3 well-rated captains who already ride that route, and you pay weekly. You see the same few faces, which helps with safety. Captains get guaranteed rides at the start of their day, and since they agreed to the route up front, there's no reason to cancel.</p>
+            <h4>Kitchen-aware Bolt</h4>
+            <p>Decide Bolt eligibility live, not once. Each restaurant shares a simple "busy / normal" signal (or Swiggy infers it from how long recent orders took to be marked ready). When a kitchen is busy, its items quietly drop out of Bolt and show normal delivery time instead. Users see fewer options at peak hours, but the ones they see actually arrive in 10 minutes.</p>
+            <p class="trade"><b>Trade-off:</b> Bolt will look emptier at lunch and dinner, exactly when demand is highest. I'd accept that, because one broken 10-minute promise does more damage than a missing option.</p>
           </div>
           <div class="measure">
-            <div><b>Main metric</b><p>Rides per active rider per week</p></div>
-            <div><b>Is it working?</b><p>Pass renewals after 4 weeks, on-time pickups</p></div>
-            <div><b>Watch out for</b><p>Captain earnings per hour, wait times for everyone else</p></div>
+            <div><b>Main metric</b><p>Share of Bolt orders delivered within the promised time</p></div>
+            <div><b>Is it working?</b><p>Repeat Bolt orders per user per month, fewer late-order complaints</p></div>
+            <div><b>Watch out for</b><p>Bolt orders per day, restaurant prep times, rider speed and safety</p></div>
           </div>
         </div>
       </details>
 
-      <!-- Pocket FM -->
+      <!-- Meesho -->
       <details class="td">
         <summary>
-          <span class="badge" style="background:#e8453c" aria-hidden="true">PF</span>
+          <span class="badge" style="background:#9b1f8a" aria-hidden="true">Me</span>
           <div>
-            <h3>Pocket FM</h3>
-            <p class="one">Audio series with hundreds of short episodes. The first few are free, then you unlock each one with coins.</p>
+            <h3>Meesho</h3>
+            <p class="one"><span class="ind">E-commerce</span> Very low prices, zero commission for sellers, built for shoppers in smaller towns.</p>
           </div>
           <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </summary>
         <div class="body">
-          <div>
-            <h4>How it works</h4>
-            <p>Think of a daily soap, but in your earphones. Episodes are short and almost every one ends on a cliffhanger. You get hooked on the free episodes, and the paywall shows up right when you most want to know what happens next. Paying a few coins per episode feels small, which suits people who don't like monthly subscriptions.</p>
+          <div class="cols">
+            <div>
+              <h4>Who uses it</h4>
+              <ul>
+                <li>Value-focused shoppers, many in tier-2 and tier-3 towns, often buying online for one of their first times.</li>
+                <li>Small sellers and manufacturers, for example from Surat or Tiruppur, who can't afford big marketplace commissions.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>How it works</h4>
+              <p>Meesho doesn't take a commission from sellers. It makes money from sellers paying for ads and from logistics. With no commission, sellers can price lower, and lower prices pull in shoppers who would never pay Amazon or Myntra prices. A lot of these orders are cash on delivery, because many first-time buyers don't trust paying upfront.</p>
+            </div>
           </div>
           <div class="diagram">
-            <svg viewBox="0 0 560 240" role="img" aria-label="Illustrative chart: the cost of a long series keeps rising with every episode, while the listener only ever sees the price of the next one">
-              <g class="s-line" stroke-width="1">
-                <line x1="50" y1="190" x2="540" y2="190"/>
-                <line x1="50" y1="30" x2="50" y2="190"/>
+            <svg viewBox="0 0 620 248" role="img" aria-label="Cash on delivery flow. An order is shipped and attempted. If the buyer refuses, the parcel travels back to the seller, who loses shipping both ways.">
+              <defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="s-muted"/></marker></defs>
+              <g font-size="13" text-anchor="middle" font-weight="600">
+                <rect x="10" y="80" width="120" height="50" rx="10" class="s-surface" style="stroke:var(--line)"/><text x="70" y="102" class="s-ink">COD order</text><text x="70" y="119" class="s-muted" font-weight="400" font-size="12">₹299 kurti</text>
+                <rect x="170" y="80" width="120" height="50" rx="10" class="s-surface" style="stroke:var(--line)"/><text x="230" y="102" class="s-ink">Shipped</text><text x="230" y="119" class="s-muted" font-weight="400" font-size="12">seller pays</text>
+                <rect x="330" y="80" width="120" height="50" rx="10" class="s-surface" style="stroke:var(--line)"/><text x="390" y="102" class="s-ink">At the door</text><text x="390" y="119" class="s-muted" font-weight="400" font-size="12">pay or refuse?</text>
+                <rect x="490" y="16" width="120" height="50" rx="10" class="s-soft"/><text x="550" y="38" class="s-acc">Paid, kept</text><text x="550" y="55" class="s-muted" font-weight="400" font-size="12">everyone wins</text>
+                <rect x="490" y="146" width="120" height="50" rx="10" class="s-sun"/><text x="550" y="168" fill="#1a1a1a">Refused</text><text x="550" y="185" fill="#3a3a3a" font-weight="400" font-size="12">sent back (RTO)</text>
               </g>
-              <g font-size="12" class="s-muted" text-anchor="middle">
-                <text x="50" y="208">0</text><text x="148" y="208">100</text><text x="246" y="208">200</text><text x="344" y="208">300</text><text x="442" y="208">400</text><text x="540" y="208">500</text>
-                <text x="295" y="230">Episodes listened</text>
+              <g fill="none" stroke-width="1.6" style="stroke:var(--muted)" marker-end="url(#ar2)">
+                <path d="M130 105 H166"/><path d="M290 105 H326"/>
+                <path d="M450 96 C 470 80, 470 50, 486 44"/><path d="M450 114 C 470 130, 470 160, 486 168"/>
+                <path d="M490 196 C 300 230, 120 220, 70 134" stroke-dasharray="4 4"/>
               </g>
-              <text x="0" y="0" font-size="12" class="s-muted" transform="translate(30 150) rotate(-90)">Total spent</text>
-              <path d="M50 190 L60 190 L540 34" fill="none" stroke-width="3" class="s-acc-stroke"/>
-              <path d="M50 190 L60 190 L540 34 L540 190 Z" class="s-soft"/>
-              <circle cx="109" cy="171" r="5" class="s-acc"/>
-              <rect x="120" y="128" width="186" height="38" rx="8" class="s-surface" style="stroke:var(--line)"/>
-              <text x="132" y="145" font-size="12.5" class="s-ink" font-weight="600">Episode 60</text>
-              <text x="132" y="159" font-size="12" class="s-muted">"Just a few coins each"</text>
-              <circle cx="540" cy="34" r="5" class="s-acc"/>
-              <rect x="300" y="20" width="220" height="38" rx="8" class="s-surface" style="stroke:var(--line)"/>
-              <text x="312" y="37" font-size="12.5" class="s-ink" font-weight="600">Episode 500</text>
-              <text x="312" y="51" font-size="12" class="s-muted">"Wait, I've spent how much?"</text>
+              <text x="310" y="242" font-size="12" text-anchor="middle" class="s-muted">Dashed line: the parcel goes back. Seller pays shipping both ways, and the product may come back damaged</text>
             </svg>
-            <p class="note">Illustration, not real prices. The point is the shape: the total keeps growing, but the app only ever shows you the price of the next episode.</p>
           </div>
           <div class="cols">
             <div>
               <h4>What's working</h4>
               <ul>
-                <li>Small payments are easy to say yes to, especially for first-time payers.</li>
-                <li>Cliffhangers put the paywall exactly where people most want to keep going.</li>
-                <li>Audio fits time video can't touch: commutes, cooking, before sleep.</li>
+                <li>Zero commission is a strong reason for small sellers to list here first.</li>
+                <li>Prices are low enough to win shoppers who were never on other e-commerce apps.</li>
+                <li>The feed feels like scrolling social media, which suits people who browse more than they search.</li>
               </ul>
             </div>
             <div>
               <h4>What's not</h4>
               <ul>
-                <li>You never know what a full series will cost before you start.</li>
-                <li>People who realise late feel tricked. They don't just stop, they leave angry reviews.</li>
-                <li>Long series lose people halfway, and nothing tells you how far you've got or how much is left.</li>
+                <li>Quality varies a lot. What arrives doesn't always match the photo, especially for size and fabric.</li>
+                <li>Cash on delivery means buyers can refuse at the door at no cost. The parcel then goes back to the seller (called RTO, return to origin), who pays shipping twice.</li>
+                <li>High returns and refusals eat into thin seller margins, which pushes sellers toward cheaper, lower-quality products.</li>
+                <li>Bad experiences make shoppers doubt the whole app, not just one seller.</li>
               </ul>
             </div>
           </div>
           <div class="idea">
             <span class="tag">What I'd build</span>
-            <h4>Show the finish line</h4>
-            <p>Every series shows how long the season is, how far you've got, and one discounted price to unlock the rest. Coins still work if you'd rather pay as you go. You'd lose a bit of impulse revenue, but people who feel in control stay longer, finish series, and start new ones.</p>
+            <h4>"Reserve with ₹19" for cash on delivery</h4>
+            <p>At checkout, COD buyers can pay a small token amount online (say ₹19) to reserve the order, which gets knocked off the final price. In return they get something they value: a small discount, faster dispatch, or free returns. Buyers who pay the token are much less likely to refuse at the door. Plain COD stays available, so nobody is locked out. Real buyer photos on product pages, especially for clothing, would sit alongside this to reduce "this isn't what I ordered" returns.</p>
+            <p class="trade"><b>Trade-off:</b> Any step at checkout loses some orders. The bet is that the orders lost are mostly the ones that would have been refused anyway.</p>
           </div>
           <div class="measure">
-            <div><b>Main metric</b><p>Listening minutes per paying user per week</p></div>
-            <div><b>Is it working?</b><p>90-day retention of payers, share who start a second series</p></div>
-            <div><b>Watch out for</b><p>Revenue per payer, refund requests, 1-star reviews about price</p></div>
+            <div><b>Main metric</b><p>Share of COD orders that get delivered and kept</p></div>
+            <div><b>Is it working?</b><p>RTO rate for sellers, share of buyers choosing the token option</p></div>
+            <div><b>Watch out for</b><p>Checkout conversion, orders from first-time buyers, seller earnings</p></div>
           </div>
         </div>
       </details>
 
-      <!-- RailOne -->
+      <!-- Jar -->
       <details class="td">
         <summary>
-          <span class="badge" style="background:#1f6feb" aria-hidden="true">R1</span>
+          <span class="badge" style="background:#5b33c9" aria-hidden="true">Ja</span>
           <div>
-            <h3>RailOne</h3>
-            <p class="one">Indian Railways' all-in-one app: tickets, PNR, live train status, food and complaints under one login.</p>
+            <h3>Jar</h3>
+            <p class="one"><span class="ind">Fintech</span> Save small amounts every day in digital gold, starting from ₹10, on autopay.</p>
           </div>
           <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </summary>
         <div class="body">
-          <div>
-            <h4>How it works</h4>
-            <p>Train travellers used to need a different app for almost everything: booking, unreserved tickets, PNR status, tracking and complaints. RailOne puts all of it behind one login. It's a big step, but the app is still arranged around the railway's departments, with one tile each, rather than around your trip.</p>
+          <div class="cols">
+            <div>
+              <h4>Who uses it</h4>
+              <ul>
+                <li>Young earners and first-time savers who feel investing is complicated or only for people with lots of money.</li>
+                <li>Families who already trust gold as a way to save, but buy it in big chunks once or twice a year.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>How it works</h4>
+              <p>You set a daily amount, as low as ₹10, and Jar uses UPI AutoPay to buy digital gold for you every day. It can also round up your spends and save the change. You don't make a decision each day, which is the whole point: saving happens by default, in an asset Indian households already trust.</p>
+            </div>
           </div>
           <div class="diagram">
-            <svg viewBox="0 0 600 220" role="img" aria-label="A train journey from booking to arrival, with the anxious moments marked and what Journey Mode would show at each step">
-              <line x1="40" y1="96" x2="560" y2="96" stroke-width="3" class="s-line"/>
-              <g font-size="13" text-anchor="middle">
-                <circle cx="60" cy="96" r="9" class="s-acc"/><text x="60" y="70" class="s-ink" font-weight="600">Book</text>
-                <circle cx="160" cy="96" r="9" class="s-sun"/><text x="160" y="70" class="s-ink" font-weight="600">Waitlisted</text>
-                <circle cx="270" cy="96" r="9" class="s-sun"/><text x="270" y="70" class="s-ink" font-weight="600">Chart prepared</text>
-                <circle cx="380" cy="96" r="9" class="s-sun"/><text x="380" y="70" class="s-ink" font-weight="600">At the station</text>
-                <circle cx="470" cy="96" r="9" class="s-acc"/><text x="470" y="70" class="s-ink" font-weight="600">On board</text>
-                <circle cx="550" cy="96" r="9" class="s-acc"/><text x="550" y="70" class="s-ink" font-weight="600">Arrive</text>
+            <svg viewBox="0 0 620 200" role="img" aria-label="Ten rupees a day becomes three hundred rupees a month and three thousand six hundred and fifty rupees a year">
+              <g text-anchor="middle">
+                <circle cx="90" cy="90" r="34" class="s-soft"/>
+                <text x="90" y="88" font-size="17" font-weight="800" class="s-acc">₹10</text><text x="90" y="105" font-size="12" class="s-muted">a day</text>
+                <circle cx="290" cy="90" r="52" class="s-soft"/>
+                <text x="290" y="88" font-size="21" font-weight="800" class="s-acc">₹300</text><text x="290" y="107" font-size="12" class="s-muted">a month</text>
+                <circle cx="510" cy="90" r="74" class="s-sun"/>
+                <text x="510" y="90" font-size="26" font-weight="800" fill="#1a1a1a">₹3,650</text><text x="510" y="111" font-size="13" fill="#3a3a3a">a year</text>
               </g>
-              <text x="40" y="30" font-size="12.5" class="s-muted">Yellow = moments where people stress and keep re-checking</text>
-              <g font-size="12" text-anchor="middle" class="s-muted">
-                <text x="160" y="130">Chance it confirms</text><text x="160" y="146">+ a backup train</text>
-                <text x="270" y="130">Alert when</text><text x="270" y="146">the chart is out</text>
-                <text x="380" y="130">Platform and</text><text x="380" y="146">coach position</text>
-                <text x="470" y="130">Food at the</text><text x="470" y="146">next stop</text>
-              </g>
-              <rect x="40" y="170" width="520" height="34" rx="8" class="s-soft"/>
-              <text x="300" y="192" font-size="13" text-anchor="middle" class="s-acc" font-weight="700">Journey Mode: one card that updates through the trip</text>
+              <g font-size="22" class="s-muted" text-anchor="middle"><text x="182" y="98">→</text><text x="392" y="98">→</text></g>
+              <text x="310" y="190" font-size="12" text-anchor="middle" class="s-muted">Without having to decide anything after day one</text>
             </svg>
+            <p class="note">Simple maths, before gold price changes and the 3% GST charged on gold purchases.</p>
           </div>
           <div class="cols">
             <div>
               <h4>What's working</h4>
               <ul>
-                <li>One login instead of four or five apps is a real everyday win.</li>
-                <li>Buying unreserved tickets on your phone means no queue at the station.</li>
-                <li>Official running and platform data is more trustworthy than third-party guesses.</li>
+                <li>₹10 a day feels like nothing, so starting is easy.</li>
+                <li>Autopay removes the daily willpower part of saving.</li>
+                <li>Gold needs no explaining in India. Nobody has to learn what a mutual fund is first.</li>
               </ul>
             </div>
             <div>
               <h4>What's not</h4>
               <ul>
-                <li>It still feels like separate apps under one icon. You jump between tiles for one trip.</li>
-                <li>The most stressful part, sitting on a waitlist before the chart comes out, gets the least help.</li>
-                <li>Tatkal booking rushes are a huge load, and one bad morning shapes how people see the whole app.</li>
+                <li>Digital gold isn't regulated by SEBI or RBI the way mutual funds or bank deposits are, which users rarely realise.</li>
+                <li>The buy-sell price gap and 3% GST mean that small, short-term savings can lose value if you withdraw soon.</li>
+                <li>There's no goal. Savings with no purpose are easy to pull out the first time money is tight, and easy to pause.</li>
+                <li>Once the novelty wears off, many people stop opening the app at all, even if autopay keeps running.</li>
               </ul>
             </div>
           </div>
           <div class="idea">
             <span class="tag">What I'd build</span>
-            <h4>Journey Mode</h4>
-            <p>Once you book, the home screen turns into one card for your trip. It shows how likely your waitlist is to confirm (with a backup option), pings you when the chart is out, shows your platform and where your coach will stop, offers food at the right station, and lets you raise a complaint in one tap with your PNR already filled in. Everything needed already exists in the app. It just needs to follow the trip.</p>
+            <h4>Savings goals with a real-world finish</h4>
+            <p>Let users save toward something specific: Diwali shopping, a sister's wedding gift, a gold coin for Akshaya Tritiya. Each goal shows a progress bar, a target date, and the option to get the goal as physical gold at the end. When someone tries to withdraw early, show what they'd lose on the spread and how close they are to the goal. Show the costs clearly up front too, so trust holds when people find out.</p>
+            <p class="trade"><b>Trade-off:</b> Being upfront about GST and the spread may scare off a few new users. I think that's better than users discovering it later and leaving with a bad taste.</p>
           </div>
           <div class="measure">
-            <div><b>Main metric</b><p>Share of trips where Journey Mode is opened on travel day</p></div>
-            <div><b>Is it working?</b><p>Fewer manual PNR checks per trip, more food orders through the app</p></div>
-            <div><b>Watch out for</b><p>Tatkal booking success rate, crash rate, Play Store rating</p></div>
+            <div><b>Main metric</b><p>Users still saving 6 months after they started</p></div>
+            <div><b>Is it working?</b><p>Share of savers with a goal, goals completed, early withdrawals</p></div>
+            <div><b>Watch out for</b><p>Sign-up conversion, autopay cancellations, complaints about charges</p></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Perplexity -->
+      <details class="td">
+        <summary>
+          <span class="badge" style="background:#1d7f86" aria-hidden="true">Px</span>
+          <div>
+            <h3>Perplexity in India</h3>
+            <p class="one"><span class="ind">Consumer AI</span> An AI answer engine with sources, handed to millions of Airtel users for free.</p>
+          </div>
+          <span class="arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </summary>
+        <div class="body">
+          <div class="cols">
+            <div>
+              <h4>Who uses it</h4>
+              <ul>
+                <li>Students and young professionals who want a direct answer instead of ten blue links.</li>
+                <li>Airtel customers who got a free year of Perplexity Pro through the Airtel Thanks app, many of whom had never used an AI tool.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>How it works</h4>
+              <p>You ask a question, and Perplexity searches the web, writes one answer, and shows the sources it used. That's the difference from a plain chatbot: you can check where each claim came from. In India, its big move was distribution. Instead of fighting Google for downloads, it partnered with a telecom company and reached a huge user base in one step.</p>
+            </div>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 620 210" role="img" aria-label="Illustrative funnel: Airtel users who can claim Pro, users who activate it, users who use it every week, users who pay after the free year. The gap between activating and weekly use is where the work is.">
+              <g font-size="13" font-weight="600">
+                <rect x="20" y="16" width="560" height="34" rx="6" class="s-soft"/><text x="34" y="38" class="s-ink">Airtel users who can claim free Pro</text>
+                <rect x="20" y="60" width="380" height="34" rx="6" class="s-soft"/><text x="34" y="82" class="s-ink">Activated it</text>
+                <rect x="20" y="104" width="190" height="34" rx="6" class="s-acc"/><text x="34" y="126" class="s-surface">Use it every week</text>
+                <rect x="20" y="148" width="80" height="34" rx="6" class="s-sun"/><text x="112" y="170" class="s-ink">Pay after the free year</text>
+              </g>
+              <path d="M420 77 C 470 77, 470 121, 230 121" fill="none" stroke-width="1.5" stroke-dasharray="4 4" style="stroke:var(--muted)"/>
+              <text x="470" y="104" font-size="12" class="s-muted">The real job:</text>
+              <text x="470" y="119" font-size="12" class="s-muted">turning a free gift</text>
+              <text x="470" y="134" font-size="12" class="s-muted">into a habit</text>
+            </svg>
+            <p class="note">Bar widths are an illustration of the shape, not real numbers.</p>
+          </div>
+          <div class="cols">
+            <div>
+              <h4>What's working</h4>
+              <ul>
+                <li>Answers come with sources, which makes them easier to trust than a chatbot that just sounds confident.</li>
+                <li>The Airtel deal got it to scale in India far faster than ads ever could.</li>
+                <li>Pro gives access to several top AI models in one app, which is good value if you'd use it.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>What's not</h4>
+              <ul>
+                <li>A free gift doesn't build a habit. Plenty of people activate it, try a few questions, and drift back to Google or ChatGPT.</li>
+                <li>Most first-time users don't know what to ask it. A blank search box doesn't teach you anything.</li>
+                <li>It still feels English-first, while a lot of India searches in Hindi and other languages, often by voice.</li>
+                <li>When the free year ends, people who never built a habit won't pay.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="idea">
+            <span class="tag">What I'd build</span>
+            <h4>Start from Indian daily jobs, not a blank box</h4>
+            <p>For new Airtel users, open with three cards built around things people already do every week: "Compare two phones before you buy", "Explain today's news in Hindi", "Help me prepare for my exam or interview". Each one starts a guided flow with voice input in the user's language. Then a weekly nudge brings people back with a question related to what they asked before. The goal is for every user to find one reason to come back before the free year ends.</p>
+            <p class="trade"><b>Trade-off:</b> Guided flows make the product feel narrower to power users. I'd show them only to new and inactive users, and keep the plain search box for everyone else.</p>
+          </div>
+          <div class="measure">
+            <div><b>Main metric</b><p>Airtel-activated users still asking questions weekly after 8 weeks</p></div>
+            <div><b>Is it working?</b><p>Questions per user per week, non-English and voice usage</p></div>
+            <div><b>Watch out for</b><p>Answer quality ratings, cost per query, paid conversion at month 12</p></div>
           </div>
         </div>
       </details>
