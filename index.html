@@ -36,6 +36,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -229,12 +230,11 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
   <div>
   <p class="hello">Hi, I'm</p>
   <h1><span class="hl">Aditya Amodkar</span></h1>
-  <p class="line">I'm a student at IIT Hyderabad. Most of my work is in product and analytics: talking to users, digging through data, and figuring out what's worth building.</p>
+  <p class="line">Most of my work is in product and analytics: talking to users, digging through data, and figuring out what's worth building.</p>
   <div class="edu">
     <span class="pill">B.Tech Civil Engineering, IIT Hyderabad '27</span>
     <span class="pill">Double Major in Entrepreneurship</span>
     <span class="pill">Minor in Economics</span>
-    <span class="pill">CGPA 9.23</span>
   </div>
   <div class="links">
     <a class="btn main" href="https://www.linkedin.com/in/aditya-amodkar/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.67 0-1.92 1.3-1.92 2.64V21h-4V9.75z"/></svg>LinkedIn</a>
@@ -248,8 +248,9 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
 <section id="about">
   <div class="wrap about">
     <div class="sh"><h2>About me</h2></div>
-    <p>I'm a final-year B.Tech Civil Engineering student at IIT Hyderabad, originally from Kalyan, Maharashtra. Alongside my degree, I'm doing a double major in Entrepreneurship and a minor in Economics.</p>
-    <p>A big part of my time in college went into the Finance &amp; Consulting Club, where I was Head of Consulting. We grew ProdX, our product case competition, to over 4,000 participants, and put together the club's first PrepBook for product and consulting interviews. This summer I interned at American Express as a Data Science &amp; Analytics intern. Right now I'm the Head Placement Coordinator for the Civil department.</p>
+    <p>I'm a final-year B.Tech student at IIT Hyderabad, originally from Kalyan, Maharashtra. Alongside my degree in Civil Engineering, I'm doing a double major in Entrepreneurship and a minor in Economics.</p>
+    <p>A big part of my time in college went into the Finance &amp; Consulting Club, where I was Head of Consulting. We grew ProdX, our product case competition, to over 4,000 participants, and put together the club's first PrepBook for product and consulting interviews.</p>
+    <p>This summer I interned at American Express as a Data Science &amp; Analytics intern in the Global Risk &amp; Compliance team, where I worked on automating country risk assessment and reporting. Right now I'm the Head Placement Coordinator for the Civil department at the Office of Career Services, IIT Hyderabad.</p>
     <p>What I enjoy most is understanding why people use a product the way they do, and then using data to decide what to fix or build next.</p>
     <p class="casual">Catch me any time to talk about a product feature you love (or hate), the latest Instagram trend, or just for a casual game of badminton.</p>
   </div>
@@ -262,7 +263,7 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
       <div class="logo-box" aria-hidden="true">AMEX</div>
       <div>
         <h3>Data Science &amp; Analytics Intern, American Express</h3>
-        <p class="meta">May 2026 – July 2026</p>
+        <p class="meta">Global Risk &amp; Compliance · May 2026 – July 2026</p>
         <ul>
           <li>Automated the full Country Risk Assessment &amp; Reporting workflow, from pulling data and processing it to calculating country risk scores and generating reports.</li>
           <li>Expanded coverage from 26 countries to all 195 UN-recognised countries, scored on 17 economic, financial and country-level parameters, so new markets can be assessed the same way.</li>
@@ -270,7 +271,7 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
           <li>Worked with risk and compliance teams to agree on reporting requirements before standardising the process.</li>
         </ul>
         <div class="nums">
-          <div><b>120 → 40 hrs</b><span>manual effort per cycle</span></div>
+          <div><b>120 → 40 hrs</b><span>manual effort</span></div>
           <div><b>26 → 195</b><span>countries covered</span></div>
           <div><b>17</b><span>risk parameters</span></div>
         </div>
@@ -403,8 +404,8 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
 
 <section id="teardowns">
   <div class="wrap">
-    <div class="sh"><h2>Product teardowns</h2><span class="count">4 products, 4 industries</span></div>
-    <p class="td-intro">Four products I use or follow closely, each from a different industry. For each one: who it's for, how it works, what's good, what isn't, one thing I'd build, and how I'd know if it worked.</p>
+    <div class="sh"><h2>Product teardowns</h2></div>
+    <p class="td-intro">Some products I find interesting, and what I'd change about them.</p>
 
     <div class="tds">
       <!-- Swiggy Bolt -->
@@ -713,7 +714,7 @@ footer { padding-block: 48px 40px; color: var(--muted); font-size: 14.5px; }
       <img src="assets/prepbook-cover.jpg" alt="Cover of the FCC PrepBook 2026, inaugural edition, by the Finance & Consulting Club, IIT Hyderabad" width="1280" height="720">
       <div class="txt">
         <h3>FCC PrepBook 2026</h3>
-        <p>As Head of Consulting, I co-led the first edition of the club's PrepBook with our Overall Coordinator. It's a guide for engineering students who are new to product and consulting interviews. It includes 30+ real interview cases from companies that recruit at IIT Hyderabad, covering product design, metrics, root cause analysis, go-to-market, guesstimates, profitability and market entry.</p>
+        <p>As Head of Consulting, I led the first edition of the club's PrepBook along with my team. It's a guide for engineering students who are new to product and consulting interviews. It includes 30+ real interview cases from companies that recruit at IIT Hyderabad, covering product design, metrics, root cause analysis, go-to-market, guesstimates, profitability and market entry.</p>
       </div>
     </article>
 
